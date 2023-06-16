@@ -1,5 +1,6 @@
 //movie_main.dart로 저장해서 만들면 안되고 main.dart로 된 파일에다가 저장해야함
 //깃허브에는 동일이름 여러개 넣으면 마지막 파일로 저장되서 이리 올린것
+//영화 보여주기 앱 
 import 'package:flutter/material.dart';
 
 void main() {
