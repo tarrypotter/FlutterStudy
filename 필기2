@@ -1,0 +1,32 @@
+플러터는 위젯으로 만들어져있음.
+->위젯들을 조합해서 화면을 그리는데 이 위젯들의 조합이 나무와 같이 생겨서 위젯트리라고 부름.
+
+프로젝트 생성
+1.바탕화면에 폴더를 만들고(플러터 프로젝트 경로에 한글이 오지 않게 주의!!)
+2.vscode열고 폴더열기 누르고 만든 폴더 클릭 
+3.command palette(명령팔레트)
+->window : ctrl + shift + p
+->macOS : commend + shift + p
+3-1.누르고 flutter 입력뒤 Flutter:new Project 선택
+3-2.Applicattion선택
+3-3.생성해둔 폴더 선택.
+Select a folder to create the project in 버튼클릭.
+
+vscode Dart세팅
+1.View → Command Palette를 선택
+2.dart recommend라고 검색한 뒤 Dart: Use Recommended Settings를 선택
+->저장 시 자동 줄 정렬 기능과 같이 편의 기능 설정이 적용됨.
+
+애뮬레이터 실행
+1.View → Command Palatte를 선택
+2.launch를 입력한 뒤 Flutter: Launch Emulator를 선택
+3.그리고 안드로이드면 안드로이드 ios면  ios선택.
+4.VSCode 우측 상단에 ⅴ 버튼을 누르고 Run Without Debugging 버튼을 클릭
+->ios는 껏다 다시 실행 시킬때는 xcode 우축을 누른뒤 디바이스를 클릭한후 아무 하고 싶은 디바이스 클릭한 뒤 4번 처럼 실행.
+
+
+
+
+
+
+
