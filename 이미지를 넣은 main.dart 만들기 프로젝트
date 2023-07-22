@@ -3,7 +3,7 @@ yami 파일에
 dependencies:
   flutter:
     sdk: flutter
-  http: ^0.13.3
+   flutter_svg: ^0.22.0
 
 //프로젝트 폴더 내에 assets/logo.svg와 assets/shopping.svg 파일을 위치시키는 방법은 다음과 같습니다:
 
