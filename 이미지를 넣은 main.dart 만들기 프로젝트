@@ -1,0 +1,176 @@
+// 이미지 넣을때?
+yami 파일에 
+dependencies:
+  flutter:
+    sdk: flutter
+  http: ^0.13.3
+
+//프로젝트 폴더 내에 assets/logo.svg와 assets/shopping.svg 파일을 위치시키는 방법은 다음과 같습니다:
+
+프로젝트 폴더 내에 assets 폴더를 생성합니다.
+assets 폴더 안에 logo.svg와 shopping.svg 파일을 복사합니다.
+그렇게 하면 
+your_project/
+  - android/
+  - ios/
+  - lib/
+  - assets/
+    - logo.svg
+    - shopping.svg
+  - pubspec.yaml
+  - ...
+됨.
+
+//main.dart
+import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'product_list_page.dart';
+
+void main() => runApp(MyApp());
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: MainPage(),
+      theme: ThemeData(
+        primaryColor: Colors.white, // 기본 테마 색상 설정
+      ),
+    );
+  }
+}
+
+class MainPage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: SvgPicture.asset(
+          'assets/logo.svg', // 로고 이미지 파일 경로 (SVG 형식)
+          height: 30,
+        ),
+        centerTitle: true,
+      ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            SvgPicture.asset(
+              'assets/shopping.svg', // 쇼핑 이미지 파일 경로 (SVG 형식)
+              height: 100,
+            ),
+            SizedBox(height: 20),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => ProductListPage()),
+                );
+              },
+              style: ElevatedButton.styleFrom(
+                primary: Colors.black, // 버튼 배경색 설정
+              ),
+              child: Padding(
+                padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+                child: Text(
+                  '상품 보기',
+                  style: TextStyle(
+                    fontSize: 18,
+                    color: Colors.white, // 버튼 텍스트 색상 설정
+                  ),
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+// 구글이미지 경로로 하는법
+dependencies:
+  flutter:
+    sdk: flutter
+  http: ^0.13.3
+
+// main.dart
+import 'dart:convert';
+import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
+import 'product_list_page.dart';
+
+void main() => runApp(MyApp());
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: MainPage(),
+      theme: ThemeData(
+        primaryColor: Colors.white, // 기본 테마 색상 설정
+      ),
+    );
+  }
+}
+
+class MainPage extends StatelessWidget {
+  final String logoImageUrl =
+      'https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png';
+
+  final String shoppingImageUrl =
+      'https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png';
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Image.network(
+          logoImageUrl,
+          height: 30,
+        ),
+        centerTitle: true,
+      ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Image.network(
+              shoppingImageUrl,
+              height: 100,
+            ),
+            SizedBox(height: 20),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => ProductListPage()),
+                );
+              },
+              style: ElevatedButton.styleFrom(
+                primary: Colors.black, // 버튼 배경색 설정
+              ),
+              child: Padding(
+                padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+                child: Text(
+                  '상품 보기',
+                  style: TextStyle(
+                    fontSize: 18,
+                    color: Colors.white, // 버튼 텍스트 색상 설정
+                  ),
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+
+
+
+
