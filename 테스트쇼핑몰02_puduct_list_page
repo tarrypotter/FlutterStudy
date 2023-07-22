@@ -1,0 +1,112 @@
+import 'package:flutter/material.dart';
+
+class ProductListPage extends StatelessWidget {
+  final List<Map<String, dynamic>> products = [
+    {
+      'name': '상품 1',
+      'price': '10,000원',
+      'description': '상품 1의 설명입니다.',
+    },
+    {
+      'name': '상품 2',
+      'price': '20,000원',
+      'description': '상품 2의 설명입니다.',
+    },
+    {
+      'name': '상품 3',
+      'price': '30,000원',
+      'description': '상품 3의 설명입니다.',
+    },
+    {
+      'name': '상품 4',
+      'price': '40,000원',
+      'description': '상품 4의 설명입니다.',
+    },
+    {
+      'name': '상품 5',
+      'price': '50,000원',
+      'description': '상품 5의 설명입니다.',
+    },
+    {
+      'name': '상품 6',
+      'price': '60,000원',
+      'description': '상품 6의 설명입니다.',
+    },
+    {
+      'name': '상품 7',
+      'price': '70,000원',
+      'description': '상품 7의 설명입니다.',
+    },
+    {
+      'name': '상품 8',
+      'price': '80,000원',
+      'description': '상품 8의 설명입니다.',
+    },
+    {
+      'name': '상품 9',
+      'price': '90,000원',
+      'description': '상품 9의 설명입니다.',
+    },
+    {
+      'name': '상품 10',
+      'price': '100,000원',
+      'description': '상품 10의 설명입니다.',
+    },
+    {
+      'name': '상품 11',
+      'price': '110,000원',
+      'description': '상품 11의 설명입니다.',
+    },
+    {
+      'name': '상품 12',
+      'price': '120,000원',
+      'description': '상품 12의 설명입니다.',
+    },
+    {
+      'name': '상품 13',
+      'price': '130,000원',
+      'description': '상품 13의 설명입니다.',
+    },
+    {
+      'name': '상품 14',
+      'price': '140,000원',
+      'description': '상품 14의 설명입니다.',
+    },
+    {
+      'name': '상품 15',
+      'price': '150,000원',
+      'description': '상품 15의 설명입니다.',
+    },
+
+    // 이하 상품들을 동일한 방식으로 추가합니다.
+    // 총 15개의 상품을 리스트에 추가합니다.
+  ];
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('상품 목록'),
+        centerTitle: true,
+      ),
+      body: ListView.builder(
+        itemCount: products.length,
+        itemBuilder: (context, index) {
+          return Card(
+            elevation: 4,
+            child: ListTile(
+              title: Text(products[index]['name']),
+              subtitle: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text('가격: ${products[index]['price']}'),
+                  Text('설명: ${products[index]['description']}'),
+                ],
+              ),
+            ),
+          );
+        },
+      ),
+    );
+  }
+}
