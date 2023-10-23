@@ -1,4 +1,4 @@
-#24번줄 뒤에 
+#24번줄 뒤에 rules 뒤에
 prefer_const_constructors:false
 prefer_const_literals_to_create_immutables:false
 
