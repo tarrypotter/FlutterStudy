@@ -1,0 +1,138 @@
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false, // 디버그 배너 숨기기
+      home: HomePage(), // 홈페이지 보여주기
+    );
+  }
+}
+
+class HomePage extends StatelessWidget {
+  const HomePage({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    // 영화 제목과 이미지 URL 데이터를 포함한 리스트
+    List<Map<String, dynamic>> dataList = [
+      {
+        "category": "탑건: 매버릭",
+        "imgUrl": "https://i.ibb.co/sR32PN3/topgun.jpg",
+      },
+      {
+        "category": "마녀2",
+        "imgUrl": "https://i.ibb.co/CKMrv91/The-Witch.jpg",
+      },
+      {
+        "category": "범죄도시2",
+        "imgUrl": "https://i.ibb.co/2czdVdm/The-Outlaws.jpg",
+      },
+      {
+        "category": "헤어질 결심",
+        "imgUrl": "https://i.ibb.co/gM394CV/Decision-to-Leave.jpg",
+      },
+      {
+        "category": "브로커",
+        "imgUrl": "https://i.ibb.co/MSy1XNB/broker.jpg",
+      },
+      {
+        "category": "문폴",
+        "imgUrl": "https://i.ibb.co/4JYHHtc/Moonfall.jpg",
+      },
+    ];
+
+    // 화면에 보이는 영역
+    return Scaffold(
+      appBar: AppBar(
+        elevation: 0, // 앱바 그림자 제거
+        backgroundColor: Colors.white, // 앱바 배경색 설정
+        centerTitle: false, // 타이틀 가운데 정렬 비활성화
+        iconTheme: IconThemeData(color: Colors.black), // 앱바 아이콘 색상 설정
+        title: Text(
+          "Movie Reviews", // 앱바 타이틀 텍스트
+          style: TextStyle(
+            color: Colors.black, // 타이틀 텍스트 색상
+            fontSize: 28, // 타이틀 텍스트 크기
+            fontWeight: FontWeight.bold, // 타이틀 텍스트 글꼴 두껍게 설정
+          ),
+        ),
+        actions: [
+          IconButton(
+            onPressed: () {
+              // 아이콘 버튼을 누를 때의 동작 (이 예제에서는 비어 있음)
+            // 여기에 사용자 지정 동작을 추가할 수 있음
+            // 예를 들어 사용자 설정 화면으로 이동하는 동작을 추가할 수 있음
+            // Navigator.push(context, MaterialPageRoute(builder: (context) => SettingsPage()));
+          },
+          icon: Icon(Icons.person_outline), // 앱바 오른쪽에 사용자 아이콘 표시
+        ],
+      ),
+      body: Column(
+        children: [
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: TextField(
+              decoration: InputDecoration(
+                hintText: "영화 제목을 검색해주세요.", // 검색창 안내 메시지
+                border: OutlineInputBorder(
+                  borderSide: BorderSide(color: Colors.black), // 검색창 테두리 스타일
+                ),
+                suffixIcon: IconButton(
+                  icon: Icon(Icons.search), // 검색 아이콘
+                  onPressed: () {
+                    // 검색 아이콘을 누를 때의 동작 (이 예제에서는 비어 있음)
+                    // 여기에 검색 로직을 추가할 수 있음
+                  },
+                ),
+              },
+            ),
+          ),
+          Divider(height: 1), // 가로선 (구분선) 추가
+          Expanded(
+            child: ListView.builder(
+              itemCount: dataList.length,
+              itemBuilder: (context, index) {
+                String category = dataList[index]['category'];
+                String imgUrl = dataList[index]['imgUrl'];
+
+                return Card(
+                  child: Stack(
+                    alignment: Alignment.center,
+                    children: [
+                      Image.network(
+                        imgUrl,
+                        width: double.infinity,
+                        height: 200,
+                        fit: BoxFit.cover, // 이미지를 카드에 맞게 조절
+                      ),
+                      Container(
+                        width: double.infinity,
+                        height: 200,
+                        color: Colors.black.withOpacity(0.5), // 이미지 위에 반투명 검은 배경
+                      ),
+                      Text(
+                        category,
+                        style: TextStyle(
+                          color: Colors.white, // 텍스트 색상
+                          fontSize: 36, // 텍스트 크기
+                        ),
+                      ),
+                    ],
+                  ),
+                );
+              },
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
